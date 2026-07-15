@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-inkLight-high dark:bg-deep dark:text-ink-high font-body antialiased transition-colors duration-300;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  ::selection {
+    @apply bg-signal/30 text-inherit;
+  }
+  :focus-visible {
+    outline: 2px solid #5EEAD4;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-xs tracking-[0.2em] uppercase text-signal;
+  }
+  .section {
+    @apply px-6 sm:px-10 lg:px-20 py-20 lg:py-28;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-signal px-6 py-3 text-sm font-semibold text-deep hover:bg-signal-soft transition-colors duration-200 shadow-[0_0_0_1px_rgba(255,122,69,0.4)];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-inkLight-low/30 dark:border-ink-low/30 px-6 py-3 text-sm font-semibold text-inkLight-high dark:text-ink-high hover:border-orbit hover:text-orbit transition-colors duration-200;
+  }
+  .card {
+    @apply bg-paper-surface dark:bg-deep-surface border border-paper-line dark:border-deep-line rounded-2xl;
+  }
+  .input-field {
+    @apply w-full rounded-xl bg-paper-surface dark:bg-deep-raised border border-paper-line dark:border-deep-line px-4 py-3 text-sm text-inkLight-high dark:text-ink-high placeholder:text-inkLight-low dark:placeholder:text-ink-low focus:border-orbit outline-none transition-colors;
+  }
+  .input-error {
+    @apply border-signal focus:border-signal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
