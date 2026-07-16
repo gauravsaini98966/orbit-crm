@@ -9,5 +9,8 @@ const PORT = process.env.PORT || 5000;
 connectDB().finally(() => {
   app.listen(PORT, () => {
     console.log(`[server] Orbit CRM API running on http://localhost:${PORT}`);
+    console.log("MONGO_URL =", process.env.MONGO_URI);
+
   });
 });
+
